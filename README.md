@@ -27,8 +27,8 @@ You also need to install docker compose as detailed here: https://docs.docker.co
 ## Start free5gcore v3.0.6 and my5G-RANTester(a gNB/UE simulator)
 
 ```
-https://github.com/LABORA-INF-UFG/slicing-use-cases.git
-cd cd slicing-use-cases/
+https://github.com/my5G/my5G-RANTester-docker-v3.0.6.git
+cd my5G-RANTester-docker-v3.0.6/
 make base
 docker-compose build
 sudo docker-compose up -d
@@ -49,3 +49,7 @@ You can access the tester using docker command:
 ```
 docker exec -it "container id that running Tester" /bin/bash
 ```
+
+<div align="left">
+<img src="images/EnteringTester.png" >
+</div>

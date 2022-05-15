@@ -16,7 +16,7 @@ gnodeb:
   test: "test-normal-registration"
 
 ue:
-  msin: "00000001"
+  msin: "0000000003"
   key: "8baf473f2f8fd09487cccbd7097c6862"
   opc: "8e27b6af0e692e750f32667a3b14605d"
   amf: "8000"
@@ -36,7 +36,7 @@ ue:
     nea0: true
     nea1: false
     nea2: false
-  test: ""
+  test: "test-imei"
 
 amfif:
   ip: "amf.free5gc.org"
