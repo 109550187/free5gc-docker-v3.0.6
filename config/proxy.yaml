@@ -1,0 +1,6 @@
+sctp:
+  ip: "proxy.my5g.org"
+  port: 9488
+http:
+  ip: "proxy.my5g.org"
+  port: 8080
