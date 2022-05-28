@@ -14,7 +14,7 @@ services:
     cap_add:
       - NET_ADMIN
     networks:
-      privnet:
+      default:
         aliases:
           - upf.free5gc.org
   db:
@@ -26,7 +26,7 @@ services:
     volumes:
       - dbdata:/data/db
     networks:
-      privnet:
+      default:
         aliases:
           - db
 
@@ -45,7 +45,7 @@ services:
       DB_URI: mongodb://db/free5gc
       GIN_MODE: release
     networks:
-      privnet:
+      default:
         aliases:
           - nrf.free5gc.org
     depends_on:
@@ -65,7 +65,7 @@ services:
     environment:
       GIN_MODE: release
     networks:
-      privnet:
+      default:
         aliases:
           - amf.free5gc.org
     depends_on:
@@ -86,7 +86,7 @@ services:
     environment:
       GIN_MODE: release
     networks:
-      privnet:
+      default:
         aliases:
           - ausf.free5gc.org
     depends_on:
@@ -106,7 +106,7 @@ services:
     environment:
       GIN_MODE: release
     networks:
-      privnet:
+      default:
         aliases:
           - nssf.free5gc.org
     depends_on:
@@ -126,7 +126,7 @@ services:
     environment:
       GIN_MODE: release
     networks:
-      privnet:
+      default:
         aliases:
           - pcf.free5gc.org
     depends_on:
@@ -147,7 +147,7 @@ services:
     environment:
       GIN_MODE: release
     networks:
-      privnet:
+      default:
         aliases:
           - smf.free5gc.org
     depends_on:
@@ -168,7 +168,7 @@ services:
     environment:
       GIN_MODE: release
     networks:
-      privnet:
+      default:
         aliases:
           - udm.free5gc.org
     depends_on:
@@ -190,31 +190,13 @@ services:
       DB_URI: mongodb://db/free5gc
       GIN_MODE: release
     networks:
-      privnet:
+      default:
         aliases:
           - udr.free5gc.org
     depends_on:
       - db
       - free5gc-nrf
-
-  tester:
-    container_name: tester
-    build:
-      context: ./nf_tester
-    command: ./app ue
-    volumes:
-      - ./config/tester.yaml:/workspace/my5G-RANTester/config/config.yml
-    cap_add:
-      - NET_ADMIN
-    networks:
-      privnet:
-        aliases:
-          - tester.free5gc.org
-    depends_on:
-      - free5gc-amf
-      - free5gc-smf
-      - free5gc-upf
-
+      
   free5gc-webui:
     container_name: webui
     build:
@@ -227,7 +209,7 @@ services:
     environment:
       - GIN_MODE=release
     networks:
-      privnet:
+      default:
         aliases:
           - webui
     ports:
@@ -236,7 +218,7 @@ services:
       - db
 
 networks:
-  privnet:
+  default:
     ipam:
       driver: default
       config:
