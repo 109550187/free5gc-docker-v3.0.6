@@ -23,7 +23,7 @@ RUN cd $GOPATH/src/free5gc \
     && make all
 
 # Alpine is used for debug purpose. You can use scratch for a smaller footprint.
-FROM alpine
+FROM alpine:3.15
 
 WORKDIR /free5gc
 RUN mkdir -p config/ support/TLS/ public
